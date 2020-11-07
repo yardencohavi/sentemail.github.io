@@ -9,20 +9,20 @@ function sendEmail()
 {
 
   Email.send({
-    Host : "smtp.gmail.com",
+    Host : "smtp.elasticemail.com",
     Username : "cohaviyarden@gmail.com",
     Password : "CE4AD64DA7D2FB30A2C534215AEFCC314D36",
-    To : 'cohaviyarden@gmail.com',
+    To : document.getElementById('email').value,
     From : "cohaviyarden@gmail.com",
-    Subject : "This is the subject",
-    Body : "And this is the body"
+    Subject : "New message",
+    Body : document.getElementById('message').value
 }).then(
   message => alert(message)
-  
+ 
 );
 }
-
 </script>
+
 </head>
 
 <body>
@@ -57,14 +57,32 @@ function getOS() {
 }
 
 document.getElementById("demo").innerHTML=getOS();
+
+
 </script>
 
-<form method="post">
-  <input type ="button" value="send email" onclick="sendEmail()"/>
+
+<form name="form" id="form" method="post" action="">  
+
+  <p class="email">  
+      <label for="email">email:</label>
+  </p>
+  <p>
+      <input name="email" type="text" id="email" />  
+  </p>
+
+  <p class="message">  
+    <label for="message">message:</label>
+</p>
+<p>
+    <input name="message" type="text" id="message" />  
+</p>  
+  <p class="submit">  
+      <input name="submitButton" type="button" id="submitButton" value="send email" onClick="sendEmail()" />
+  </p>  
 </form>
 
-
-
+      
 
 </body>
 </html>
